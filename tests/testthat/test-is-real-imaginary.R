@@ -6,7 +6,7 @@ test_that("test.is_imaginary.imaginary_numbers.returns_true_when_purely_imaginar
       strip_attributes(actual <- is_imaginary(x)), 
       expected
     )
-    expect_equal(names(actual), as.character(x))
+    expect_named(actual)
     expect_equal(
       cause(actual),
       noquote(rep.int(c("", "real", "missing"), c(2, 3, 1)))
@@ -21,7 +21,7 @@ test_that("test.is_imaginary.real_numbers.returns_true_when_0",
     strip_attributes(actual <- is_imaginary(x)), 
     expected
   )
-  expect_equal(names(actual), as.character(x))
+  expect_named(actual)
   expect_equal(
     cause(actual),
     noquote(rep.int(c("", "real", "missing"), c(1, 3, 1)))
@@ -36,7 +36,7 @@ test_that("test.is_real.imaginary_numbers.returns_true_when_purely_real",
     strip_attributes(actual <- is_real(x)), 
     expected
   )
-  expect_equal(names(actual), as.character(x))
+  expect_named(actual)
   expect_equal(
     cause(actual),
     noquote(rep.int(c("", "imaginary", "missing"), c(2, 3, 1)))
@@ -51,5 +51,5 @@ test_that("test.is_real.real_numbers.returns_true_always",
     strip_attributes(actual <- is_real(x)), 
     expected
   )
-  expect_equal(names(actual), as.character(x))
+  expect_named(actual)
 }) 

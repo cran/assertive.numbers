@@ -4,7 +4,7 @@ assert_all_are_equal_to <- function(x, y, tol = 100 * .Machine$double.eps,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are not all equal to %s (tol = %g).", 
     .xname,
@@ -30,7 +30,7 @@ assert_any_are_equal_to <- function(x, y, tol = 100 * .Machine$double.eps,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are never equal to %s (tol = %g).", 
     .xname,
@@ -57,7 +57,7 @@ assert_all_are_not_equal_to <- function(x, y, tol = 100 * .Machine$double.eps,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are sometimes equal to %s (tol = %g).", 
     .xname,
@@ -83,7 +83,7 @@ assert_any_are_not_equal_to <- function(x, y, tol = 100 * .Machine$double.eps,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are all equal to %s (tol = %g).", 
     .xname,
@@ -110,7 +110,7 @@ assert_all_are_greater_than <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are not all greater than %s.", 
     .xname,
@@ -134,7 +134,7 @@ assert_any_are_greater_than <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are never greater than %s.", 
     .xname,
@@ -159,7 +159,7 @@ assert_all_are_greater_than_or_equal_to <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are not all greater than or equal to %s.", 
     .xname,
@@ -183,7 +183,7 @@ assert_any_are_greater_than_or_equal_to <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are never greater than or equal to %s.", 
     .xname,
@@ -208,7 +208,7 @@ assert_all_are_less_than <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are not all less than %s.", 
     .xname,
@@ -232,7 +232,7 @@ assert_any_are_less_than <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are never less than %s.", 
     .xname,
@@ -257,7 +257,7 @@ assert_all_are_less_than_or_equal_to <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are not all less than or equal to %s.", 
     .xname,
@@ -281,7 +281,7 @@ assert_any_are_less_than_or_equal_to <- function(x, y,
   na_ignore = FALSE, severity = getOption("assertive.severity", "stop"))
 {  
   .xname <- get_name_in_parent(x)
-  .yname <- get_name_in_parent(x)
+  .yname <- get_name_in_parent(y)
   msg <- gettextf(
     "%s are never less than or equal to %s.", 
     .xname,

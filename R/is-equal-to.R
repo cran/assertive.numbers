@@ -49,13 +49,14 @@ is_equal_to <- function(x, y, tol = 100 * .Machine$double.eps,
   {
     y <- coerce_to(y, "numeric", .yname)
   }
+  difference <- abs(x - y)
+  ok <- difference <= tol
   call_and_name(
     function(x) 
     {
-      ok <- abs(x - y) <= tol
-      set_cause(ok, "not equal")
+      set_cause(ok, sprintf("not equal to %g (tol = %g); abs. difference = %g", y, tol, difference))
     }, 
-    x
+    rep_len(x, length(ok))
   ) 
 }
 
@@ -72,13 +73,13 @@ is_not_equal_to <- function(x, y, tol = 100 * .Machine$double.eps,
   {
     y <- coerce_to(y, "numeric", .yname)
   }
+  ok <- abs(x - y) > tol
   call_and_name(
     function(x) 
     {
-      ok <- abs(x - y) > tol
-      set_cause(ok, "equal")
+      set_cause(ok, sprintf("equal to %g (tol = %g)", y, tol))
     }, 
-    x
+    rep_len(x, length(ok))
   ) 
 }
 
@@ -95,13 +96,13 @@ is_greater_than <- function(x, y,
   {
     y <- coerce_to(y, "numeric", .yname)
   }
+  ok <- x > y
   call_and_name(
     function(x) 
     {
-      ok <- x > y
-      set_cause(ok, "less than or equal to")
+      set_cause(ok, paste("less than or equal to", y))
     }, 
-    x
+    rep_len(x, length(ok))
   ) 
 }
 
@@ -118,13 +119,13 @@ is_greater_than_or_equal_to <- function(x, y,
   {
     y <- coerce_to(y, "numeric", .yname)
   }
+  ok <- x >= y
   call_and_name(
     function(x) 
     {
-      ok <- x >= y
-      set_cause(ok, "less than")
+      set_cause(ok, paste("less than", y))
     }, 
-    x
+    rep_len(x, length(ok))
   ) 
 }
 
@@ -141,13 +142,13 @@ is_less_than <- function(x, y,
   {
     y <- coerce_to(y, "numeric", .yname)
   }
+  ok <- x < y
   call_and_name(
     function(x) 
     {
-      ok <- x < y
-      set_cause(ok, "greater than or equal to")
+      set_cause(ok, paste("greater than or equal to", y))
     }, 
-    x
+    rep_len(x, length(ok))
   ) 
 }
 
@@ -164,12 +165,12 @@ is_less_than_or_equal_to <- function(x, y,
   {
     y <- coerce_to(y, "numeric", .yname)
   }
+  ok <- x <= y
   call_and_name(
     function(x) 
     {
-      ok <- x <= y
-      set_cause(ok, "greater than")
+      set_cause(ok, paste("greater than", y))
     }, 
-    x
+    rep_len(x, length(ok))
   ) 
 }

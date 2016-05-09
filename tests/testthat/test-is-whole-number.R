@@ -11,7 +11,7 @@ test_that(
       strip_attributes(actual <- is_whole_number(x)), 
       expected
     )
-    expect_equal(names(actual), as.character(x))
+    expect_named(actual)
     expect_equal(
       cause(actual),
       noquote(rep.int(c("", "fractional", "infinite", "missing"), c(4, 3, 2, 2)))
@@ -32,7 +32,7 @@ test_that(
       strip_attributes(actual <- is_whole_number(x, 0)), 
       expected
     )
-    expect_equal(names(actual), as.character(x))
+    expect_named(actual)
     expect_equal(
       cause(actual),
       noquote(rep.int(c("", "fractional", "infinite", "missing"), c(2, 5, 2, 2)))
